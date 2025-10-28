@@ -123,7 +123,39 @@ def make_table(width, height, length):
     jednego odstępu. Tekst powinien być wyrównany do zewnętrznej strony tabeli
     (do lewej w lewej kolumnie i do prawej w prawej kolumnie).
     """
-    pass
+    ocw1 = optimal_column_width("Wymiar", ("Szerokość", "Wysokość", "Długość"))
+    ocw2 = optimal_column_width("Wartość", (width, height, length))
+    
+    # format_row(("Wymiar", ocw1), ("Wartość", ocw2))
+    print(f"{'Wymiar':{ocw1}}|{'Wartość':>{ocw2}}")
+
+    print("-" * (ocw1 + ocw2 + 2))
+    format_row(("Szerokość", ocw1), (width, ocw2))
+    format_row(("Wysokość", ocw1), (height, ocw2))
+    format_row(("Długość", ocw1), (length, ocw2))
+
+
+def format_row(cont1: tuple[str, float], cont2: tuple[str, float]):
+    text1, width1 = cont1
+    text2, width2 = cont2
+    text2 = float(text2)
+    width1 = int(width1)
+    width2 = int(width2)
+    row = f"{text1:{width1}}|{text2:>{width2}.3f}"
+    print(row)
+
+
+def optimal_column_width(column_name: str, dimensions: tuple[str]):
+    max_len_elem = 0
+    for elem in dimensions:
+        elem = str(elem)
+        if len(elem) > max_len_elem:
+            max_len_elem = len(elem)
+    
+    if len(column_name) > max_len_elem:
+        max_len_elem = len(column_name)
+
+    return max_len_elem + 2
 
 
 # Zadanie 8
@@ -150,5 +182,8 @@ if __name__ == "__main__":
     # perpendicular_bisector_point((3, 0), (0, 3))
     # to_binary(8)
     # compute_mean((1, 2, 3, 4, 5, 20))
-    compute_binominal_roots(1, 6, -18)
-    compute_binominal_roots(1, -8, 16)
+    # compute_binominal_roots(1, 6, -18)
+    # compute_binominal_roots(1, -8, 16)
+    # make_table(2434.400, 35.350, 0.202)
+    make_table("70", "3", "2")
+    make_table("2434.400", "35.350", "0.202")

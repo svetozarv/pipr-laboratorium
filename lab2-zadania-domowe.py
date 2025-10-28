@@ -92,7 +92,6 @@ def create_frame(text: str, w: int):
             ans += "*" + text.center(w-2) + "*\n"
         else:
             ans += "*" + " " * (w - 2) + "*\n"
-        
 
     ans += "*" * w + "\n"
 
