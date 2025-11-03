@@ -42,7 +42,7 @@ def fibonacci(n=5):
     return fibonacci(n - 1) + fibonacci(n - 2)
 
 
-# Zadanie 4
+# Zadanie 4 #TODO (raczej nie będę robił)
 def print_receipt():
     """
     Zmodyfikuj funkcję `print_receipt` tak, aby prócz sumowania kwoty 
@@ -63,9 +63,10 @@ def print_receipt():
     TOTAL+TAX:	29.61
     ```
     """
+    pass
+
 
 if __name__ == "__main__":
     # fizzbuzz(40)
     # reverse_list([1, 2, 3, 4, 5, 6, 7, 8, 9])
     print(fibonacci())
-    pass

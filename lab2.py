@@ -64,7 +64,7 @@ def print_student_assignment_time(student_name, assign_num, time_ms):
     """
     print(f"Student {student_name} has completed task No.{assign_num} in {int(time_ms)/1000:0.03f}s")
 
-# ---------------- w klasie ----------------
+# ---------------- w domu, do poćwiczenia ----------------
 
 # Zadanie 4
 def perpendicular_bisector_point(point1: tuple[int], point2: tuple[int]):
