@@ -76,4 +76,83 @@ def check_input_in2():
     """
     pass
 
+# Zadanie 4
+def encrypt_vigenere(key: str, plaintext: str) -> str:
+    """
+    Napisać testy dla funkcji szyfrującej tekst (tylko duże litery alfabetu łacińskiego i spacja) za pomocą
+    oryginalnego szyfru Vigenère’a z autokluczem (jako klucz podawana jest jedna litera) -
+    [link do strony opisującej szyfr Vigenère’a](https://pl.wikipedia.org/wiki/Szyfr_Vigen%C3%A8re%E2%80%99a).
+    Proszę zastanowić się jakie będą przypadki graniczne oraz niepoprawne dane.
 
+    Napisane testy będą wykorzystane w kolejnych zadaniach.
+    """
+    pass
+
+def decrypt_vigenere(key: str, ciphertext: str) -> str:
+    pass
+
+
+# Zadanie 5
+def count_elements_above_average(elems: list[int]) -> int:
+    """
+    Napisać funkcję `count_element_above_average`, która dla podanej kolekcji liczb zwróci liczbę zawartych w niej
+    elementów o wartości większej niż średnia wartość elementu w tej kolekcji. Funkcja ma nie sprawdzać poprawności
+    dostarczonych parametrów, tylko przeprowadzać obliczenia, zakładając, że w kolekcji jest co najmniej jeden element.
+    Proszę dokonać dekompozycji problemu - wydzielić obliczanie wartości średniej jako oddzielną funkcję.
+
+    Napisać drugą funkcję, która jako parametr otrzyma kolekcję kolekcji liczb i dla każdego elementu kolekcji
+    (zewnętrznej) wywoła `count_element_above_average`. Funkcja ma zwracać kolekcję obliczonych wartości
+    (zwróconych przez funkcję `count_elements_above_average`).
+    W przypadku wystąpienia błędu jako wynik do kolekcji ma być dodawany napis informujący o rodzaju błędu np.
+    "ZŁA WARTOŚĆ", "DZIELENIE PRZEZ ZERO".
+    Napisać program wywołujący funkcję dla danych z przykładu poniżej.
+
+    Przykład:
+
+    Dane wejściowe: `[[1, 2, 3], [5, 6, 7], [], [3, 4, 5] ["12a", 1, 4]]`
+
+    Wynik: `[1, 1, "DZIELENIE PRZEZ ZERO", 1, "ZŁA WARTOŚĆ" ]`
+
+    Wskazówka: W drugiej funkcji (wywołującej funkcję `count_elements_above_average`)
+    należy przechwycić i obsłużyć zgłaszane wyjątki.
+    """
+    # musi być osobna funkcja
+    sum = 0
+    for i in elems:
+        sum += i
+    mean = sum / len(elems)
+
+    elems_above_average = 0
+    for elem in elems:
+        if elem > mean:
+            elems_above_average += 1
+        
+    return elems_above_average
+    # print(elems_above_average)
+
+
+def count_elements_above_average_collection(collection: list[list]) -> list[int]:
+    """
+    Napisać drugą funkcję, która jako parametr otrzyma kolekcję kolekcji liczb i dla każdego elementu kolekcji
+    (zewnętrznej) wywoła `count_element_above_average`. Funkcja ma zwracać kolekcję obliczonych wartości
+    (zwróconych przez funkcję `count_elements_above_average`).
+    W przypadku wystąpienia błędu jako wynik do kolekcji ma być dodawany napis informujący o rodzaju błędu np.
+    "ZŁA WARTOŚĆ", "DZIELENIE PRZEZ ZERO".
+    Napisać program wywołujący funkcję dla danych z przykładu poniżej.
+    """
+    counts_ls = []
+
+    for ls in collection:
+        try:
+            count = count_elements_above_average(ls)
+            counts_ls.append(count)
+        except ZeroDivisionError:
+            counts_ls.append("DZIELENIE PRZEZ ZERO")
+        except TypeError:
+            counts_ls.append("ZŁA WARTOŚĆ")
+        
+    return counts_ls
+
+
+if __name__ == "__main__":
+    count_elements_above_average_collection([[1, 2, 3], [5, 6, 7], [], [3, 4, 5], ["12a", 1, 4]])
