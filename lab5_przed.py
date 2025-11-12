@@ -40,7 +40,7 @@ def distance(n, p1: tuple[int, int], p2: tuple[int, int]) -> int:
     """    
     x1, y1 = p1
     x2, y2 = p2
-    if min(x1, x2, y1, y2) < n or max(x1, x2, y1, y2) > n:
+    if min(x1, x2, y1, y2) < -n or max(x1, x2, y1, y2) > n:
         raise ValueError("Coordinates must be in range <N, N>.")
 
     city_dist = count_city_dist(p1, p2)
@@ -65,6 +65,7 @@ def count_city_dist(p1: tuple[int, int], p2: tuple[int, int]) -> int:
     x2, y2 = p2
     return abs(x1 - x2) + abs(y1 - y2)
 
+
 # Zadanie 3
 def check_input_in2():
     """   
@@ -75,6 +76,7 @@ def check_input_in2():
     w przypadku przekroczenia dopuszczalnego zakresu wartości współrzędnych.
     """
     pass
+
 
 # Zadanie 4
 def encrypt_vigenere(key: str, plaintext: str) -> str:

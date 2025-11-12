@@ -168,10 +168,11 @@ def count_chars(word: str) -> dict:
     funkcja powinna zwrócić: `{'k': 3, 'u': 2, 'ł': 1, 'a': 1}`.
     """
     mydict = {}
-    for i in word:
-        mydict[i] = word.count(i)
+    for char in word:
+        mydict[char] = word.count(char)
 
     return mydict
+
 
 # Zadanie 2
 def filter_words(phrase: str, filter: tuple[str, int]):
@@ -291,20 +292,21 @@ def time_description(hours: int, minutes: int) -> str:
 
 
 if __name__ == "__main__":
-    print(filter_words("Alice in wonderland went into a deep coma.", ("e", 2)))
-    print(filter_words("Alice in wonderland went into a deep eeee coma.", ("e", 2)))
+    # print(filter_words("Alice in wonderland went into a deep coma.", ("e", 2)))
+    # print(filter_words("Alice in wonderland went into a deep eeee coma.", ("e", 2)))
     
-    char_table = [
-        ['a', 'c', 'o'],
-        ['a', 'a', 'c'],
-        ['d', 'o', 'O'],
-        ['c', 'b', 'a']
-    ]
-    count_symbols(char_table)
+    # char_table = [
+    #     ['a', 'c', 'o'],
+    #     ['a', 'a', 'c'],
+    #     ['d', 'o', 'O'],
+    #     ['c', 'b', 'a']
+    # ]
+    # count_symbols(char_table)
     
-    print(time_description(8, 15))
-    print(time_description(11, 13))
-    print(time_description(12, 30))
-    print(time_description(6, 37))
-    print(time_description(3, 45))
-    print(time_description(15, 5))
+    # print(time_description(8, 15))
+    # print(time_description(11, 13))
+    # print(time_description(12, 30))
+    # print(time_description(6, 37))
+    # print(time_description(3, 45))
+    # print(time_description(15, 5))
+    count_chars("kukułka")
